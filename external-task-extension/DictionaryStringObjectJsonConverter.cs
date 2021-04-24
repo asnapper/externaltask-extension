@@ -5,6 +5,8 @@ using System.Text.Json.Serialization;
 
 namespace ch.swisstxt.mh3.externaltask.extension
 {
+    // shamelessly stolen from https://josef.codes/custom-dictionary-string-object-jsonconverter-for-system-text-json/
+    // might even be no longer needed as the ExternalTask.Job getter doesn't do any casting but instantiates a new TJob with all fields from the dictionary
 
     public class DictionaryStringObjectJsonConverter : JsonConverter<Dictionary<string, dynamic>>
     {
