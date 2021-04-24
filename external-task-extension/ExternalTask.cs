@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
@@ -12,9 +12,7 @@ namespace ch.swisstxt.mh3.externaltask.extension
         {
             get
             {
-                object value;
-                Variables.TryGetValue("job", out value);
-                return (TJob)value;
+                return (TJob)Variables.GetValueOrDefault("job", null);
             }
         }
 
@@ -22,9 +20,7 @@ namespace ch.swisstxt.mh3.externaltask.extension
         {
             get
             {
-                object value;
-                Variables.TryGetValue("tenant", out value);
-                return (string)value;
+                return (string)Variables.GetValueOrDefault("tenant", null);
             }
         }
 

@@ -8,7 +8,6 @@ namespace ch.swisstxt.mh3.externaltask.extension
 
         public ExternalTaskResultStatus Status { get; set; }
         public string JobUrl { get; set; }
-        public string ErrorMessage = null;
 
     }
 }

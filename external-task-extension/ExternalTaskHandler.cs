@@ -69,7 +69,7 @@ namespace ch.swisstxt.mh3.externaltask.extension
         public void HandleError(ExternalTask<TJob> task, string errorMessage)
         {
 
-            var result = new ExternalTaskResult
+            var result = new ExternalTaskErrorResult
             {
                 ExternalTaskId = task.ExternalTaskId,
                 Topic = task.Topic,
