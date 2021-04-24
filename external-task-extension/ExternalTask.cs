@@ -11,26 +11,12 @@ namespace ch.swisstxt.mh3.externaltask.extension
 
         public TJob Job
         {
-            get
-            {
-                TJob job = new TJob { };
-
-                foreach (var propertyInfo in typeof(TJob).GetProperties())
-                {
-                    propertyInfo.SetValue(job, Variables["job"][propertyInfo.Name]);
-                }
-
-                return job;
-            }
+            get { return Variables.GetAs<TJob>("job"); }
         }
 
         public string Tenant
         {
-            get
-            {
-                var value = Variables["tenant"];
-                return (string)value;
-            }
+            get { return (string)Variables["tenant"]; }
         }
 
         public long Priority { get; set; }
