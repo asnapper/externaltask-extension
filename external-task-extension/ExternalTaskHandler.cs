@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
-namespace ch.swisstxt.mh3.externaltask.Extension
+namespace ch.swisstxt.mh3.externaltask.extension
 {
     public interface IExternalTaskHandler<TJob>
     {

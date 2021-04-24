@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ch.swisstxt.mh3.externaltask.Extension
+namespace ch.swisstxt.mh3.externaltask.extension
 {
     public class ExternalTaskResult
     {

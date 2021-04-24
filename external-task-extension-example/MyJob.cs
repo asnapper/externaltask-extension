@@ -1,4 +1,4 @@
-namespace ch.swisstxt.mh3.externaltask
+namespace ch.swisstxt.mh3.externaltask.example
 {
     public class MyJob
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace ch.swisstxt.mh3.externaltask.Extension
+namespace ch.swisstxt.mh3.externaltask.extension
 {
     public class ExternalTask<TJob>
     {

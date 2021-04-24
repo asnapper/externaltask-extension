@@ -8,7 +8,7 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace ch.swisstxt.mh3.externaltask.Extension
+namespace ch.swisstxt.mh3.externaltask.extension
 {
     class JsonDateConverter : JsonConverter<DateTime>
     {

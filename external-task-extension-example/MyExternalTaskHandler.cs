@@ -1,16 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ch.swisstxt.mh3.externaltask.Extension;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using ch.swisstxt.mh3.externaltask.extension;
 using Microsoft.Extensions.Logging;
 
-namespace ch.swisstxt.mh3.externaltask
+namespace ch.swisstxt.mh3.externaltask.example
 {
     public class MyExternalTaskHandler : ExternalTaskHandler<MyJob>
     {
