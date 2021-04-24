@@ -12,13 +12,13 @@ namespace ch.swisstxt.mh3.externaltask.example
             this.logger = logger;
         }
 
-        public override void handleTask(ExternalTask<MyJob> task)
+        public override void HandleTask(ExternalTask<MyJob> task)
         {
             logger.LogInformation("starting", task);
-            handleStart(task);
+            HandleStart(task);
 
             logger.LogInformation("finishing", task);
-            handleSuccess(task);
+            HandleSuccess(task);
         }
 
     }

@@ -28,7 +28,7 @@ namespace ch.swisstxt.mh3.externaltask.extension
             resultChannel = connection.CreateModel();
             topicChannel = connection.CreateModel();
         }
-        private void sendToResultChannel(object payload)
+        private void SendToResultChannel(object payload)
         {
             IBasicProperties basicProperties = resultChannel.CreateBasicProperties();
             basicProperties.Headers = new Dictionary<string, object>();
@@ -36,49 +36,49 @@ namespace ch.swisstxt.mh3.externaltask.extension
             resultChannel.BasicPublish(exchange: "", routingKey: configuration.ResultChannel, basicProperties, body: Encoding.UTF8.GetBytes(JsonSerializer.Serialize(payload)));
         }
 
-        public virtual void handleTask(ExternalTask<TJob> task) { }
+        public virtual void HandleTask(ExternalTask<TJob> task) { }
 
-        public void handleStart(ExternalTask<TJob> task)
+        public void HandleStart(ExternalTask<TJob> task)
         {
 
             var result = new ExternalTaskResult
             {
-                externalTaskId = task.externalTaskId,
-                topic = task.topic,
-                status = ExternalTaskResultStatus.RUNNING,
-                variables = task.variables
+                ExternalTaskId = task.ExternalTaskId,
+                Topic = task.Topic,
+                Status = ExternalTaskResultStatus.RUNNING,
+                Variables = task.Variables
             };
 
-            sendToResultChannel(result);
+            SendToResultChannel(result);
         }
 
-        public void handleSuccess(ExternalTask<TJob> task)
+        public void HandleSuccess(ExternalTask<TJob> task)
         {
 
             var result = new ExternalTaskResult
             {
-                externalTaskId = task.externalTaskId,
-                topic = task.topic,
-                status = ExternalTaskResultStatus.FINISHED,
-                variables = task.variables
+                ExternalTaskId = task.ExternalTaskId,
+                Topic = task.Topic,
+                Status = ExternalTaskResultStatus.FINISHED,
+                Variables = task.Variables
             };
 
-            sendToResultChannel(result);
+            SendToResultChannel(result);
         }
 
-        public void handleError(ExternalTask<TJob> task, string errorMessage)
+        public void HandleError(ExternalTask<TJob> task, string errorMessage)
         {
 
             var result = new ExternalTaskResult
             {
-                externalTaskId = task.externalTaskId,
-                topic = task.topic,
-                status = ExternalTaskResultStatus.ERROR,
-                variables = task.variables,
-                errorMessage = errorMessage
+                ExternalTaskId = task.ExternalTaskId,
+                Topic = task.Topic,
+                Status = ExternalTaskResultStatus.ERROR,
+                Variables = task.Variables,
+                ErrorMessage = errorMessage
             };
 
-            sendToResultChannel(result);
+            SendToResultChannel(result);
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -93,7 +93,7 @@ namespace ch.swisstxt.mh3.externaltask.extension
                 var message = Encoding.UTF8.GetString(body);
                 ExternalTask<TJob> task = JsonSerializer.Deserialize<ExternalTask<TJob>>(message);
                 logger.LogInformation("recieved task", task);
-                handleTask(task);
+                HandleTask(task);
             };
 
             topicChannel.BasicConsume(queue: configuration.TopicChannel, autoAck: true, consumer: consumer);

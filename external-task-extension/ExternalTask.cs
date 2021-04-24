@@ -8,27 +8,27 @@ namespace ch.swisstxt.mh3.externaltask.extension
 {
     public class ExternalTask<TJob> : ExternalTaskCommon
     {
-        public TJob job
+        public TJob Job
         {
             get
             {
                 object value;
-                variables.TryGetValue("job", out value);
+                Variables.TryGetValue("job", out value);
                 return (TJob)value;
             }
         }
 
-        public string tenant
+        public string Tenant
         {
             get
             {
                 object value;
-                variables.TryGetValue("tenant", out value);
+                Variables.TryGetValue("tenant", out value);
                 return (string)value;
             }
         }
 
-        public long priority { get; set; }
+        public long Priority { get; set; }
 
         // TODO: fix datetime de-/serialization between java Date and .net DateTime
         // [DataType(DataType.Date)]

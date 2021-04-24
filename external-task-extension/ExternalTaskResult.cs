@@ -6,9 +6,9 @@ namespace ch.swisstxt.mh3.externaltask.extension
     public class ExternalTaskResult : ExternalTaskCommon
     {
 
-        public ExternalTaskResultStatus status { get; set; }
-        public string jobUrl { get; set; }
-        public string errorMessage = null;
+        public ExternalTaskResultStatus Status { get; set; }
+        public string JobUrl { get; set; }
+        public string ErrorMessage = null;
 
     }
 }
