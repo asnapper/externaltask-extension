@@ -13,7 +13,8 @@ namespace ch.swisstxt.mh3.externaltask.example
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.ConfigureExternalTasks<MyExternalTaskHandler>(new ExternalTaskConfiguration {
+            services.ConfigureExternalTasks<MyExternalTaskHandler>(new ExternalTaskConfiguration
+            {
                 Host = "localhost",
                 User = "guest",
                 Password = "guest",

@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace ch.swisstxt.mh3.externaltask.extension
 {
-    public class ExternalTask<TJob>
+    public class ExternalTask<TJob> : ExternalTaskCommon
     {
         public TJob job
         {
@@ -28,16 +28,9 @@ namespace ch.swisstxt.mh3.externaltask.extension
             }
         }
 
-        public override string ToString() {
-            return JsonSerializer.Serialize<ExternalTask<TJob>>(this);
-        }
-
-
-        public Dictionary<string, object> variables = new Dictionary<string, object>();
-        public string topic { get; set; }
-        public string externalTaskId { get; set; }
         public long priority { get; set; }
-        
+
+        // TODO: fix datetime de-/serialization between java Date and .net DateTime
         // [DataType(DataType.Date)]
         // [JsonConverter(typeof(JsonDateConverter))]
         // public DateTime lockExpirationTime { get; set; }

@@ -7,7 +7,8 @@ namespace ch.swisstxt.mh3.externaltask.extension
 {
     public static class ExternalTaskExtension
     {
-        public static void ConfigureExternalTasks<THandler>(this IServiceCollection services, ExternalTaskConfiguration configuration) where THandler : class, IHostedService{
+        public static void ConfigureExternalTasks<THandler>(this IServiceCollection services, ExternalTaskConfiguration configuration) where THandler : class, IHostedService
+        {
             services.AddSingleton<ExternalTaskConfiguration>(configuration);
             services.AddHostedService<THandler>();
         }

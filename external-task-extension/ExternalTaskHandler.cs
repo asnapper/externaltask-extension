@@ -11,14 +11,6 @@ using RabbitMQ.Client.Events;
 
 namespace ch.swisstxt.mh3.externaltask.extension
 {
-    public interface IExternalTaskHandler<TJob>
-    {
-        void handleError(ExternalTask<TJob> task, string errorMessage);
-        void handleStart(ExternalTask<TJob> task);
-        void handleSuccess(ExternalTask<TJob> task);
-        void handleTask(ExternalTask<TJob> task);
-    }
-
     public abstract class ExternalTaskHandler<TJob> : IExternalTaskHandler<TJob>, IHostedService
     {
         private readonly ExternalTaskConfiguration configuration;
@@ -26,9 +18,6 @@ namespace ch.swisstxt.mh3.externaltask.extension
         private readonly IModel resultChannel;
         private readonly IModel topicChannel;
         private readonly IConnection connection;
-
-
-
         public ExternalTaskHandler(ExternalTaskConfiguration configuration, ILogger<ExternalTaskHandler<TJob>> logger)
         {
             this.configuration = configuration;
@@ -38,9 +27,7 @@ namespace ch.swisstxt.mh3.externaltask.extension
             connection = factory.CreateConnection();
             resultChannel = connection.CreateModel();
             topicChannel = connection.CreateModel();
-
         }
-
         private void sendToResultChannel(object payload)
         {
             IBasicProperties basicProperties = resultChannel.CreateBasicProperties();
