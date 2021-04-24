@@ -20,4 +20,14 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\external-task-extension\external-task-extension.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <None Update="job.json">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+  </ItemGroup>
+
 </Project>

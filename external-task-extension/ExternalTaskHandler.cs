@@ -11,7 +11,7 @@ using RabbitMQ.Client.Events;
 
 namespace ch.swisstxt.mh3.externaltask.extension
 {
-    public abstract class ExternalTaskHandler<TJob> : IExternalTaskHandler<TJob>, IHostedService
+    public abstract class ExternalTaskHandler<TJob> : IExternalTaskHandler<TJob>, IHostedService where TJob : new()
     {
         private readonly ExternalTaskConfiguration configuration;
         private readonly ILogger<ExternalTaskHandler<TJob>> logger;

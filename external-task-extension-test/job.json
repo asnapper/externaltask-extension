@@ -1,0 +1,13 @@
+{
+    "variables": {
+        "job": {
+            "field1": "first",
+            "field2": "second"
+        },
+        "tenant": "Test"
+    },
+    "topic": "mytopic",
+    "externalTaskId": "c3da00d6-abac-11ea-bd18-0a580a0a5169",
+    "priority": 99,
+    "lockExpirationTime": "2021-03-25T01:43:14.534+0000"
+}
