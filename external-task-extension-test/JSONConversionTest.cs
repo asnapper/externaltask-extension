@@ -6,7 +6,7 @@ using Xunit;
 namespace ch.swisstxt.mh3.externaltask.test
 {
 
-    public class JSONConversion
+    public class JSONConversionTest
     {
         private class JSONConversionTestJob
         {
@@ -17,9 +17,9 @@ namespace ch.swisstxt.mh3.externaltask.test
         private string sampleJob { get; set; }
 
         private JsonSerializerOptions options { get; set; }
-        public JSONConversion()
+        public JSONConversionTest()
         {
-            sampleJob = File.ReadAllText("job.json");
+            sampleJob = File.ReadAllText("JSONConversionTest_job.json");
             options = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
